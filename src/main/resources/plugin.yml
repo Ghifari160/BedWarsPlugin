@@ -1,0 +1,11 @@
+name: BedWarsPlugin
+version: 0.1.0
+main: com.ghifari160.bedwarsplugin.BedWarsPlugin
+commands:
+  bwworld:
+    description: BedWars Plugin world management
+    usage: /<command> <load|unload|teleport|list> <world name>
+
+  bwrank:
+    description: BedWars Plugin rank management
+    usage: /<command> <list|assign|unassign> [<rank> <player>]

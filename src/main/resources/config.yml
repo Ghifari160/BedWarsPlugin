@@ -1,0 +1,33 @@
+ranks:
+  staff:
+    prefix: Staff
+    permissions:
+      - bedwarsplugin.world.load
+      - bedwarsplugin.world.unload
+      - bedwarsplugin.world.teleport.self
+      - bedwarsplugin.world.teleport.others
+      - bedwarsplugin.rank.list
+      - bedwarsplugin.rank.assign
+      - bedwarsplugin.rank.unassign
+      - bedwarsplugin.team.create
+      - bedwarsplugin.team.join
+      - bedwarsplugin.team.promote
+      - bedwarsplugin.team.invite
+      - bedwarsplugin.team.add
+      - bedwarsplugin.team.name
+  dev:
+    prefix: Developer
+    permissions:
+      - bedwarsplugin.world.load
+      - bedwarsplugin.world.unload
+      - bedwarsplugin.world.teleport.self
+      - bedwarsplugin.world.teleport.others
+      - bedwarsplugin.rank.list
+      - bedwarsplugin.rank.assign
+      - bedwarsplugin.rank.unassign
+  streamer:
+    prefix: Streamer
+    permissions:
+      - bedwarsplugin.team.name
+  member:
+    default: true
