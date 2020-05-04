@@ -5,56 +5,32 @@ import com.ghifari160.bedwarsplugin.ranks.IRankManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+
+import java.util.Arrays;
 
 public class RankCommand implements CommandExecutor
 {
     BedWarsPlugin plugin;
-    IRankManager manager;
+    IRankManager rankManager;
 
     public RankCommand(BedWarsPlugin core, IRankManager rankManager)
     {
         plugin = core;
-        manager = rankManager;
+        this.rankManager = rankManager;
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
     {
+        String[] opts = { "list" };
+
         if(args.length < 1)
-            return false;
+            sender.sendMessage("Invalid usage." + Arrays.toString(opts));
         else if(args[0].equalsIgnoreCase("list"))
         {
-            StringBuilder ranks = new StringBuilder();
+            String[] registeredRankNames = new String[rankManager.getRegisteredRankNames().size()];
+            rankManager.getRegisteredRankNames().toArray(registeredRankNames);
 
-            for(String rank : manager.getRegisteredRanks())
-                ranks.append(rank + ", ");
-
-            sender.sendMessage("Registered ranks: " + ranks);
-        }
-        else if(args[0].equalsIgnoreCase("assign"))
-        {
-            Player player = null;
-
-            if(manager.getRegisteredRanks().contains(args[1]))
-            {
-                if(args.length > 2)
-                    player = plugin.getServer().getPlayer(args[2]);
-                else if(sender instanceof Player)
-                    player = (Player) sender;
-
-                if(player != null)
-                {
-                    manager.addRank(player, args[1]);
-
-                    sender.sendMessage("Assigned rank " + args[1] + " to " + player.getName());
-                }
-                else
-                    sender.sendMessage("Player " + args[2] + " does not exists.");
-            }
-            else
-            {
-                sender.sendMessage("Rank " + args[1] + " does not exists.");
-            }
+            sender.sendMessage("Registered ranks: " + Arrays.toString(registeredRankNames));
         }
 
         return true;

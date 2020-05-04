@@ -1,0 +1,27 @@
+{
+  "name": "bedwarsplugin",
+  "version": "0.1.0",
+  "description": "Because the only available BedWars plugin won't accept our money",
+  "private": true,
+  "scripts": {
+    "backend-start:create-net": "docker network create bwp-net",
+    "backend-start:mysql": "node .docker/scripts/mysql-start",
+    "backend-start:pma": "node .docker/scripts/phpmyadmin-start",
+    "backend-start": "npm run backend-start:create-net && npm run backend-start:mysql && npm run backend-start:pma",
+    
+    "backend-stop:delete-net": "docker network rm bwp-net",
+    "backend-stop:mysql": "node .docker/scripts/mysql-stop",
+    "backend-stop:pma": "node .docker/scripts/phpmyadmin-stop",
+    "backend-stop": "npm run backend-stop:pma && npm run backend-stop:mysql && npm run backend-stop:delete-net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghifari160/BedWarsPlugin.git"
+  },
+  "author": "GHIFARI160",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Ghifari160/BedWarsPlugin/issues"
+  },
+  "homepage": "https://github.com/Ghifari160/BedWarsPlugin#readme"
+}

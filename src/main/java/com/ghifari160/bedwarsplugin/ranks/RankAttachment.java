@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RankAttachment
 {
-    final List<Rank> ranks;
+    List<Rank> ranks;
 
     public RankAttachment()
     {
@@ -20,6 +20,11 @@ public class RankAttachment
     public void removeRank(Rank rank)
     {
         ranks.remove(rank);
+    }
+
+    public void setRanks(List<Rank> playerRanks)
+    {
+        ranks = playerRanks;
     }
 
     public List<Rank> getRanks()

@@ -7,18 +7,31 @@ import java.util.UUID;
 
 public interface IRankManager
 {
+    void registerRank(Rank rank);
+
+    void deregisterRank(Rank rank);
+    void deregisterRank(UUID uuid);
+
+    void registerPlayer(Player player);
+
+    void deregisterPlayer(Player player);
+    void deregisterPlayer(UUID uuid);
+
     void addPlayer(Player player);
 
     void removePlayer(Player player);
-    void removePlayer(UUID uuid);
 
-    void addRank(Player player, String rank);
-    void removeRank(Player player, String rank);
+    void addRank(Player player, Rank rank);
+    void addRank(Player player, UUID rankUUID);
 
-    List<String> getRegisteredRanks();
+    void removeRank(Player player, Rank rank);
+    void removeRank(Player player, UUID rankUUID);
 
-    String getFullPrefix(Player player);
-    String getFullPrefix(UUID uuid);
+    List<Rank> getRegisteredRanks();
+    List<String> getRegisteredRankNames();
+
+    String getChatPrefix(Player player);
+    String getChatPrefix(UUID rankUUID);
 
     void start();
     void shutdown();
