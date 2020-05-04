@@ -4,13 +4,25 @@ import org.bukkit.World;
 
 public class BWWorld
 {
-    final World world;
-    boolean persistent;
+    private final World world;
+    private boolean persistent;
+    private boolean arena;
+
+    public BWWorld(World world)
+    {
+        this(world, false);
+    }
 
     public BWWorld(World world, boolean persistent)
     {
+        this(world, persistent, false);
+    }
+
+    public BWWorld(World world, boolean persistent, boolean arena)
+    {
         this.world = world;
         this.persistent = persistent;
+        this.arena = arena;
     }
 
     public World getWorld()

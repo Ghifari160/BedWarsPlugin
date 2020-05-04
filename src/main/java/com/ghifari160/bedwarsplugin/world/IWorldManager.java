@@ -10,6 +10,7 @@ public interface IWorldManager
 
     boolean loadWorld(String name);
     boolean loadWorld(String name, boolean persistent);
+    boolean loadWorld(String name, boolean persistent, boolean arena);
 
     void setDefaultWorld(String name);
     World getDefaultWorld();

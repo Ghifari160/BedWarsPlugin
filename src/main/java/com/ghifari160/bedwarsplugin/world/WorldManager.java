@@ -29,8 +29,13 @@ public class WorldManager implements IWorldManager
 
     public boolean loadWorld(String name, boolean persistent)
     {
+        return loadWorld(name, persistent, false);
+    }
+
+    public boolean loadWorld(String name, boolean persistent, boolean arena)
+    {
         WorldCreator creator = new WorldCreator(name);
-        BWWorld world = new BWWorld(plugin.getServer().createWorld(creator), persistent);
+        BWWorld world = new BWWorld(plugin.getServer().createWorld(creator), persistent, arena);
 
         worlds.put(name, world);
 
